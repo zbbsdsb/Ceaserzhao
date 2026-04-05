@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/versions/1.0.3", "destination": "/versions/1.0.3/index.html" },
+    { "source": "/versions/1.0.3/", "destination": "/versions/1.0.3/index.html" }
+  ]
+}

@@ -27,7 +27,7 @@ class HomePage {
     const urlParams = new URLSearchParams(window.location.search);
     const versionId = urlParams.get('v');
     if (!versionId) {
-      this.loadCSS('/src/styles/versions/1.0.1.css');
+      this.loadCSS('/styles/versions/1.0.1.css');
     }
 
     // 初始化导航栏（直接初始化，不需要加载 HTML）

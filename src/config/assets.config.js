@@ -8,7 +8,7 @@ export const assetsConfig = {
   images: {
     // 头像
     avatar: {
-      default: '/assets/images/avatar/v1.0.3profile.jpg',
+      default: '/assets/images/avatar/avatar.jpg',
       fallback: '/assets/images/avatar/default.JPG',
       meta: '/assets/images/avatar/meta.png'
     },
@@ -30,8 +30,8 @@ export const assetsConfig = {
   
   // 组件模板
   templates: {
-    navbar: '/src/components/navbar/navbar.html',
-    gallery: '/src/components/gallery/gallery.html'
+    navbar: '/templates/navbar.html',
+    gallery: '/templates/gallery.html'
   },
   
   // 样式文件
@@ -52,8 +52,8 @@ export const assetsConfig = {
     },
     // 版本样式
     versions: {
-      '1.0.0': '/src/styles/versions/1.0.0.css',
-      '1.0.1': '/src/styles/versions/1.0.1.css'
+      '1.0.0': '/styles/versions/1.0.0.css',
+      '1.0.1': '/styles/versions/1.0.1.css'
     }
   },
   
