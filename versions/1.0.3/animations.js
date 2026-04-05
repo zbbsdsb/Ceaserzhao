@@ -135,11 +135,74 @@ function initScrollAnimations() {
 }
 
 /**
+ * Initialize custom cursor functionality
+ */
+function initCustomCursor() {
+  const cursor = document.getElementById('cursor');
+  const follower = document.getElementById('cursorFollower');
+  
+  if (!cursor || !follower) return;
+  
+  let mouseX = 0;
+  let mouseY = 0;
+  let followerX = 0;
+  let followerY = 0;
+  
+  // Update mouse position
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Immediate dot position
+    cursor.style.left = `${mouseX}px`;
+    cursor.style.top = `${mouseY}px`;
+  });
+  
+  // Smooth follower animation
+  function animateFollower() {
+    // Lerp for smooth following
+    const lerpFactor = 0.15;
+    followerX += (mouseX - followerX) * lerpFactor;
+    followerY += (mouseY - followerY) * lerpFactor;
+    
+    follower.style.left = `${followerX}px`;
+    follower.style.top = `${followerY}px`;
+    
+    requestAnimationFrame(animateFollower);
+  }
+  
+  animateFollower();
+  
+  // Hover states
+  const interactables = document.querySelectorAll('a, button, .indicator, .bento-item, .org-card, .timeline-card, .project-link');
+  
+  interactables.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      document.body.classList.add('cursor-hover');
+    });
+    
+    el.addEventListener('mouseleave', () => {
+      document.body.classList.remove('cursor-hover');
+    });
+  });
+  
+  // Click state
+  window.addEventListener('mousedown', () => {
+    document.body.classList.add('cursor-active');
+  });
+  
+  window.addEventListener('mouseup', () => {
+    document.body.classList.remove('cursor-active');
+  });
+}
+
+/**
  * Initialize all animations
  */
 function initAnimations() {
   initProjectArchiveSlider();
   initScrollAnimations();
+  initCustomCursor();
 }
 
 // Initialize when DOM is ready
