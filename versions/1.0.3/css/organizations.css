@@ -1,0 +1,107 @@
+/* Organizations Section Styles - The Ethereal Architect */
+
+/* Import Variables */
+@import './variables.css';
+
+.organization-section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--bg-main);
+}
+
+.organization-section h2 {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-main);
+  font-style: italic;
+}
+
+/* Organizations Grid */
+.organizations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 0; /* Seamless grid */
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid var(--color-border);
+}
+
+/* Organization Card */
+.org-card {
+  padding: var(--spacing-xl);
+  border: 1px solid var(--color-border);
+  transition: var(--transition-smooth);
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.org-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary);
+  opacity: 0;
+  z-index: 0;
+  transition: var(--transition-smooth);
+  transform: translateY(100%);
+}
+
+.org-card:hover::before {
+  opacity: 0.05;
+  transform: translateY(0);
+}
+
+.org-card h3 {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-text-main);
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  z-index: 1;
+}
+
+.org-card p {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+/* Organization Link */
+.org-link {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  position: relative;
+  z-index: 1;
+}
+
+.org-link::after {
+  content: '→';
+  transition: transform var(--transition-fast);
+}
+
+.org-link:hover::after {
+  transform: translateX(5px);
+}
+
+/* Responsive Organizations */
+@media (max-width: 768px) {
+  .organizations-grid {
+    grid-template-columns: 1fr;
+  }
+}

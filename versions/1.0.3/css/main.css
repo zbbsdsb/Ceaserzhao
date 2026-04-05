@@ -1,0 +1,127 @@
+/* Main CSS File */
+/* Imports all CSS modules */
+
+@import './variables.css';
+@import './base.css';
+@import './navbar.css';
+@import './hero.css';
+@import './organizations.css';
+@import './facts.css';
+@import './projects.css';
+@import './timeline.css';
+@import './contact.css';
+
+/* Additional Global Styles */
+
+/* Motto Section - The Ethereal Architect */
+.motto-section,
+.motto2-section {
+  padding: var(--spacing-2xl) 0;
+  background-color: var(--bg-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.motto-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  position: relative;
+}
+
+.motto-card p {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  color: var(--color-text-main);
+  font-style: italic;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.motto-card::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-serif);
+  font-size: 10rem;
+  color: var(--color-primary);
+  opacity: 0.1;
+  line-height: 1;
+}
+
+.motto2-card p {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+/* Responsive Motto */
+@media (max-width: 768px) {
+  .motto-card {
+    padding: var(--spacing-lg) 0;
+  }
+}
+
+/* Gallery Container */
+#gallery-container {
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--bg-light);
+}
+
+/* Smooth scrolling for all sections */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation for elements entering viewport */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all var(--transition-slow);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: #00ffaa;
+    --color-primary-dark: #00cc88;
+    --border-color: #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

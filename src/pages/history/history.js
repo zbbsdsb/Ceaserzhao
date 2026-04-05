@@ -1,0 +1,267 @@
+/**
+ * History Page Logic
+ * 历史版本页面逻辑
+ */
+
+import { i18n } from '../../core/i18n/i18n.js';
+import { versionConfig } from '../../config/version.config.js';
+import { Navbar } from '../../components/navbar/navbar.js';
+import { assetsConfig } from '../../config/assets.config.js';
+
+class HistoryPage {
+  constructor() {
+    this.init();
+  }
+
+  /**
+   * 初始化历史页面
+   */
+  async init() {
+    // 初始化导航栏
+    await this.loadNavbar();
+
+    // 初始化翻译
+    await this.initTranslations();
+
+    // 初始化版本列表
+    this.initVersionList();
+
+    // 初始化版本选择器
+    this.initVersionSelector();
+  }
+
+  /**
+   * 加载导航栏
+   */
+  async loadNavbar() {
+    try {
+      const response = await fetch(assetsConfig.get('templates', 'navbar'));
+      const html = await response.text();
+      document.getElementById('navbar-container').innerHTML = html;
+      new Navbar();
+    } catch (error) {
+      console.error('Failed to load navbar:', error);
+    }
+  }
+
+  /**
+   * 初始化翻译
+   */
+  async initTranslations() {
+    if (!i18n.translations[i18n.currentLanguage]) {
+      await i18n.init();
+    }
+
+    this.updateTranslations();
+
+    i18n.onChange(() => {
+      this.updateTranslations();
+    });
+  }
+
+  /**
+   * 更新翻译
+   */
+  updateTranslations() {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      element.textContent = i18n.t(key);
+    });
+  }
+
+  /**
+   * 初始化版本列表
+   */
+  initVersionList() {
+    const versionList = document.getElementById('version-list');
+    const versions = versionConfig.versions;
+
+    // 按日期倒序排列
+    const sortedVersions = [...versions].reverse();
+
+    versionList.innerHTML = '';
+
+    sortedVersions.forEach(version => {
+      const isCurrent = version.id === versionConfig.currentVersion.id;
+      const card = this.createVersionCard(version, isCurrent);
+      versionList.appendChild(card);
+    });
+  }
+
+  /**
+   * 创建版本卡片
+   */
+  createVersionCard(version, isCurrent) {
+    const card = document.createElement('div');
+    card.className = `version-card ${isCurrent ? 'current' : ''}`;
+    card.dataset.version = version.id;
+
+    const badge = isCurrent
+      ? `<span class="version-badge" data-i18n="history.current">${i18n.t('history.current')}</span>`
+      : '';
+
+    card.innerHTML = `
+      <div class="version-card-header">
+        <div class="version-info">
+          <span class="version-id">${version.id}</span>
+          ${badge}
+        </div>
+        <span class="version-date">${version.date}</span>
+      </div>
+      <h3 class="version-name">${version.name}</h3>
+      <p class="version-description">${version.description}</p>
+    `;
+
+    // 点击切换到该版本
+    card.addEventListener('click', () => {
+      if (isCurrent) {
+        alert('This is the current version!');
+      } else {
+        this.viewVersion(version);
+      }
+    });
+
+    return card;
+  }
+
+  /**
+   * 初始化版本选择器
+   */
+  initVersionSelector() {
+    const select = document.getElementById('version-select');
+    const viewButton = document.getElementById('view-button');
+    const versions = versionConfig.versions;
+
+    // 按日期倒序排列
+    const sortedVersions = [...versions].reverse();
+
+    // 填充选项
+    sortedVersions.forEach(version => {
+      const option = document.createElement('option');
+      option.value = version.id;
+      option.textContent = `${version.id} - ${version.name}`;
+      select.appendChild(option);
+    });
+
+    // 默认选中当前版本
+    select.value = versionConfig.currentVersion.id;
+
+    // 查看按钮点击事件
+    viewButton.addEventListener('click', () => {
+      const selectedVersionId = select.value;
+      const version = versions.find(v => v.id === selectedVersionId);
+
+      if (version) {
+        this.viewVersion(version);
+      }
+    });
+  }
+
+  /**
+   * 查看指定版本
+   */
+  viewVersion(version) {
+    // 实现版本切换逻辑
+    this.showVersionTransition(version);
+  }
+
+  /**
+   * 显示版本切换过渡动画
+   */
+  showVersionTransition(version) {
+    // 创建过渡动画元素
+    const transitionElement = document.createElement('div');
+    transitionElement.className = 'version-transition';
+    transitionElement.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      pointer-events: none;
+      overflow: hidden;
+    `;
+
+    // 创建左侧线条
+    const lineLeft = document.createElement('div');
+    lineLeft.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 50%;
+      height: 100%;
+      background-color: ${versionConfig.transition.colors.lineLeft};
+      transition: transform ${versionConfig.transition.animationDuration}ms ease-in-out;
+    `;
+
+    // 创建右侧线条
+    const lineRight = document.createElement('div');
+    lineRight.style.cssText = `
+      position: absolute;
+      top: 0;
+      right: -50%;
+      width: 50%;
+      height: 100%;
+      background-color: ${versionConfig.transition.colors.lineRight};
+      transition: transform ${versionConfig.transition.animationDuration}ms ease-in-out;
+    `;
+
+    // 创建品牌文字
+    const brandText = document.createElement('div');
+    brandText.style.cssText = `
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      font-weight: bold;
+      color: ${versionConfig.transition.colors.text};
+      opacity: 0;
+      transition: opacity ${versionConfig.transition.animationDuration / 2}ms ease-in-out;
+      transition-delay: ${versionConfig.transition.animationDuration / 2}ms;
+    `;
+    brandText.textContent = 'ceaserlab';
+
+    // 添加元素到页面
+    transitionElement.appendChild(lineLeft);
+    transitionElement.appendChild(lineRight);
+    transitionElement.appendChild(brandText);
+    document.body.appendChild(transitionElement);
+
+    // 触发动画
+    setTimeout(() => {
+      lineLeft.style.transform = 'translateX(100%)';
+      lineRight.style.transform = 'translateX(-100%)';
+      
+      // 显示品牌文字
+      setTimeout(() => {
+        brandText.style.opacity = '1';
+        
+        // 隐藏所有元素并跳转到版本页面
+        setTimeout(() => {
+          brandText.style.opacity = '0';
+          
+          setTimeout(() => {
+            lineLeft.style.transform = 'translateX(200%)';
+            lineRight.style.transform = 'translateX(-200%)';
+            
+            // 跳转到版本页面
+            setTimeout(() => {
+              window.location.href = `/versions/${version.id}/`;
+            }, versionConfig.transition.animationDuration / 2);
+          }, versionConfig.transition.animationDuration / 2);
+        }, versionConfig.transition.animationDuration / 2);
+      }, versionConfig.transition.animationDuration);
+    }, 100);
+  }
+}
+
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', () => {
+  new HistoryPage();
+});
+
+// 导出
+export { HistoryPage };

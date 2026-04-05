@@ -1,0 +1,73 @@
+/* CSS Variables - The Ethereal Architect Theme */
+:root {
+  /* Spacing - More generous and rhythmic */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+  --spacing-2xl: 12rem;
+  
+  /* Typography - Sophisticated pairing */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 3rem;
+  --text-4xl: 4.5rem;
+  --text-5xl: 6rem;
+  --text-6xl: 8rem;
+  
+  /* Colors - Deep, layered, high-end */
+  --color-primary: #8B5CF6; /* Electric Violet */
+  --color-primary-glow: rgba(139, 92, 246, 0.3);
+  --color-accent: #D4AF37;  /* Muted Gold */
+  --color-text-main: #F9FAFB;
+  --color-text-muted: #9CA3AF;
+  --color-border: rgba(255, 255, 255, 0.1);
+  
+  /* Backgrounds */
+  --bg-main: #050505;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-glass: rgba(10, 10, 10, 0.7);
+  
+  /* Borders */
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 8px;
+  --border-radius-full: 9999px;
+  
+  /* Transitions - Smooth and deliberate */
+  --transition-smooth: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-fast: all 0.3s ease;
+  
+  /* Container */
+  --container-max-width: 1400px;
+  --container-padding: 2rem;
+  
+  /* Navbar */
+  --navbar-height: 90px;
+}
+
+[data-theme="dark"] {
+  --bg-main: #050505;
+  --color-text-main: #F9FAFB;
+  --color-text-muted: #9CA3AF;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --color-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+  --bg-main: #F9FAFB;
+  --color-text-main: #050505;
+  --color-text-muted: #4B5563;
+  --bg-card: rgba(0, 0, 0, 0.03);
+  --color-border: rgba(0, 0, 0, 0.1);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+}

@@ -1,0 +1,261 @@
+/**
+ * Navbar Component Logic (Updated)
+ * 导航栏逻辑（更新版）- 支持 History 下拉菜单
+ */
+
+import { i18n } from '../../core/i18n/i18n.js';
+import { themeManager } from '../../core/theme/theme-manager.js';
+import { i18nConfig } from '../../config/i18n.config.js';
+import { VersionSwitcher } from '../version-switcher/version-switcher.js';
+import '../../components/version-switcher/version-switcher.css';
+
+class Navbar {
+  constructor() {
+    this.initElements();
+    this.init();
+  }
+
+  /**
+   * 初始化 DOM 元素引用
+   */
+  initElements() {
+    this.navbar = document.getElementById('navbar');
+    this.languageSwitcher = document.getElementById('language-switcher');
+    this.languageDropdown = document.getElementById('language-dropdown');
+    this.currentLanguageFlag = document.getElementById('current-language-flag');
+    this.currentLanguageName = document.getElementById('current-language-name');
+    this.themeToggle = document.getElementById('theme-toggle');
+    this.versionSwitcherContainer = this.navbar.querySelector('.navbar-controls .nav-control:first-child');
+
+    // 调试：检查 language-switcher 的子元素
+    if (this.languageSwitcher) {
+      console.log('language-switcher children:', this.languageSwitcher.children.length);
+      console.log('language-switcher innerHTML:', this.languageSwitcher.innerHTML.substring(0, 800));
+    }
+
+    // 调试日志
+    console.log('Navbar initialized');
+    console.log('navbar element:', this.navbar);
+    console.log('languageSwitcher element:', this.languageSwitcher);
+    console.log('languageDropdown element:', this.languageDropdown);
+    console.log('themeToggle element:', this.themeToggle);
+    console.log('versionSwitcherContainer element:', this.versionSwitcherContainer);
+  }
+
+  /**
+   * 初始化导航栏
+   */
+  async init() {
+    // 等待 i18n 初始化完成
+    if (!i18n.translations[i18n.currentLanguage]) {
+      await i18n.init();
+    }
+
+    await this.initLanguageSwitcher();
+    this.initThemeToggle();
+    this.initVersionSwitcher();
+    this.initActiveLink();
+    this.initTranslations();
+  }
+
+  /**
+   * 初始化语言切换器
+   */
+  async initLanguageSwitcher() {
+    console.log('initLanguageSwitcher called');
+    console.log('languageSwitcher:', this.languageSwitcher);
+    console.log('languageDropdown:', this.languageDropdown);
+
+    // 更新当前语言显示
+    this.updateCurrentLanguage();
+
+    // 生成语言选项
+    this.generateLanguageOptions();
+
+    // 绑定点击事件
+    if (this.languageSwitcher) {
+      this.languageSwitcher.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleDropdown(this.languageSwitcher, this.languageDropdown);
+      });
+    }
+
+    // 点击外部关闭下拉菜单
+    document.addEventListener('click', () => {
+      this.closeDropdown(this.languageSwitcher, this.languageDropdown);
+    });
+
+    // 监听语言变化
+    i18n.onChange((language) => {
+      this.updateCurrentLanguage();
+      this.generateLanguageOptions();
+    });
+  }
+
+  /**
+   * 更新当前语言显示
+   */
+  updateCurrentLanguage() {
+    const langConfig = i18n.getLanguageConfig();
+    if (langConfig && this.currentLanguageFlag && this.currentLanguageName) {
+      this.currentLanguageFlag.textContent = langConfig.flag;
+      this.currentLanguageName.textContent = langConfig.name;
+    }
+  }
+
+  /**
+   * 生成语言选项
+   */
+  generateLanguageOptions() {
+    if (!this.languageDropdown) {
+      console.error('languageDropdown is null');
+      return;
+    }
+    this.languageDropdown.innerHTML = '';
+    const languages = i18n.getAllLanguages();
+
+    languages.forEach(lang => {
+      const button = document.createElement('button');
+      button.className = `dropdown-item ${lang.code === i18n.currentLanguage ? 'selected' : ''}`;
+      button.innerHTML = `
+        <span>${lang.flag}</span>
+        <span>${lang.name}</span>
+      `;
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        i18n.setLanguage(lang.code);
+        this.closeDropdown(this.languageSwitcher, this.languageDropdown);
+      });
+      this.languageDropdown.appendChild(button);
+    });
+  }
+
+  /**
+   * 初始化版本切换组件
+   */
+  initVersionSwitcher() {
+    if (this.versionSwitcherContainer) {
+      // 加载版本切换组件的HTML
+      fetch('/src/components/version-switcher/version-switcher.html')
+        .then(response => response.text())
+        .then(html => {
+          this.versionSwitcherContainer.innerHTML = html;
+          // 初始化版本切换组件
+          new VersionSwitcher();
+        })
+        .catch(error => {
+          console.error('Failed to load version switcher:', error);
+        });
+    }
+  }
+
+  /**
+   * 切换下拉菜单
+   */
+  toggleDropdown(trigger, menu) {
+    const isActive = trigger.classList.contains('active');
+    
+    // 关闭所有下拉菜单
+    this.closeAllDropdowns();
+    
+    // 如果未激活，则激活
+    if (!isActive) {
+      trigger.classList.add('active');
+    }
+  }
+
+  /**
+   * 关闭下拉菜单
+   */
+  closeDropdown(trigger, menu) {
+    trigger.classList.remove('active');
+  }
+
+  /**
+   * 关闭所有下拉菜单
+   */
+  closeAllDropdowns() {
+    this.languageSwitcher.classList.remove('active');
+  }
+
+  /**
+   * 初始化主题切换
+   */
+  initThemeToggle() {
+    console.log('initThemeToggle called');
+    console.log('themeToggle:', this.themeToggle);
+
+    if (!this.themeToggle) {
+      console.error('themeToggle is null');
+      return;
+    }
+
+    this.updateThemeIcon();
+
+    this.themeToggle.addEventListener('click', () => {
+      themeManager.toggle();
+    });
+
+    // 监听主题变化
+    themeManager.onChange((theme) => {
+      this.updateThemeIcon();
+    });
+  }
+
+  /**
+   * 更新主题图标
+   */
+  updateThemeIcon() {
+    if (!this.themeToggle) return;
+
+    const theme = themeManager.getTheme();
+    const sunIcon = this.themeToggle.querySelector('.sun-icon');
+    const moonIcon = this.themeToggle.querySelector('.moon-icon');
+
+    if (theme === 'dark' && sunIcon && moonIcon) {
+      sunIcon.classList.add('hidden');
+      moonIcon.classList.remove('hidden');
+    } else if (sunIcon && moonIcon) {
+      sunIcon.classList.remove('hidden');
+      moonIcon.classList.add('hidden');
+    }
+  }
+
+  /**
+   * 初始化活动链接
+   */
+  initActiveLink() {
+    const currentPath = window.location.pathname;
+    const links = this.navbar.querySelectorAll('.nav-link');
+
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  /**
+   * 初始化翻译
+   */
+  initTranslations() {
+    const elements = this.navbar.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      element.textContent = i18n.t(key);
+    });
+
+    // 监听语言变化，更新翻译
+    i18n.onChange(() => {
+      elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        element.textContent = i18n.t(key);
+      });
+    });
+  }
+}
+
+// 导出
+export { Navbar };

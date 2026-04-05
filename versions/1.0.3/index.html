@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal website of ceaserzhao">
+  <meta name="theme-color" content="#00a67e">
+  <title>Ceaserzhao - The Dreambuilder Awakens</title>
+
+  <!-- High-End Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 版本 1.0.3 样式 -->
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+  <script src="js/interactive-terms.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar-container">
+    <nav class="navbar" id="navbar">
+      <div class="navbar-content">
+        <!-- Logo -->
+        <a href="/versions/1.0.3/" class="navbar-logo" data-i18n="hero.name">Ceaserzhao</a>
+
+        <!-- Navigation Links -->
+        <div class="navbar-links">
+          <a href="/versions/1.0.3/" class="nav-link" data-i18n="nav.home">Home</a>
+          <a href="/history.html" class="nav-link" data-i18n="nav.history">History</a>
+        </div>
+
+        <!-- Right Side Controls -->
+        <div class="navbar-controls">
+          <!-- Version Switcher -->
+          <div class="nav-control">
+            <!-- Version switcher will be inserted here by JS -->
+          </div>
+
+          <!-- Language Switcher -->
+          <div class="nav-control" id="language-switcher">
+            <button class="nav-control-btn" aria-label="Change language">
+              <span id="current-language-flag" class="language-flag">🇺🇸</span>
+              <span id="current-language-name" class="language-name">English</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="dropdown-menu" id="language-dropdown">
+              <!-- Language options will be populated by JS -->
+            </div>
+          </div>
+
+          <!-- Theme Switcher -->
+          <button class="nav-control-btn" id="theme-toggle" aria-label="Toggle theme">
+            <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="theme-icon moon-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+
+          <!-- GitHub Link -->
+          <a href="https://github.com/Ceaserlab/Ceaserlab.github.io" class="nav-control-btn github-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="hero-section section">
+      <div class="hero-glow"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <span class="hero-label" data-i18n="hero.label">The Dreambuilder</span>
+            <h1 class="hero-title">
+              Ceaser<span>zhao</span>
+            </h1>
+            <div class="hero-intro">
+              <p data-i18n="hero.intro1">I'm ceaserzhao, an insane dreambuilder. I'm always full of energy, with new ideas constantly popping into my head. I aspire to construct a powerful mental universe—and the best part is, I'm actually doing it.</p>
+              <p data-i18n="hero.intro2">As thought, so happens. Welcome to Oasisvese.</p>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-avatar-wrapper">
+              <img src="../../assets/images/avatar/avatar.jpg" alt="Ceaserzhao" class="avatar-image">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span class="scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- Motto 1 -->
+    <section class="motto-section section">
+      <div class="container">
+        <div class="motto-card">
+          <p data-i18n="motto1.content">I know the singularity won't descend — it's hidden in my past. I believe I can transcend my current neorowprine and examine the game I'm in from a spectator's perspective. I will tell my story to the world.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Organization -->
+    <section class="organization-section section">
+      <div class="container">
+        <h2 data-i18n="organization.title">My Organizations</h2>
+        <div class="organizations-grid">
+          <div class="org-card">
+            <h3 data-i18n="organization.oasis.name">Oasis Company</h3>
+            <p data-i18n="organization.oasis.description">Founded in 6th grade, it was just a pretend game back then (but it still is now)</p>
+            <a href="https://github.com/Oasis-Company" target="_blank" rel="noopener noreferrer" class="org-link">GitHub</a>
+          </div>
+          <div class="org-card">
+            <h3 data-i18n="organization.idiotz.name">3idiotz</h3>
+            <p data-i18n="organization.idiotz.description">Named after the Bollywood movie 3 Idiots (me and two Indian friends)</p>
+            <a href="https://github.com/3idiotz" target="_blank" rel="noopener noreferrer" class="org-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facts -->
+    <section class="facts-section section">
+      <div class="container">
+        <h2 data-i18n="facts.title">More Facts About Me</h2>
+        <div class="facts-content">
+          <!-- Fields I Explore -->
+          <div class="bento-item bento-fields">
+            <h3 data-i18n="facts.fields">Fields I Explore</h3>
+            <div class="fields-list">
+              <span class="interactive-term">
+                💻 Computer Graphics
+                <span class="term-tooltip">The creation of images using computers, including 3D modeling, rendering, and animation</span>
+              </span>
+              <span class="interactive-term">
+                Game Development
+                <span class="term-tooltip">The process of creating video games, including design, programming, and art</span>
+              </span>
+              <span class="interactive-term">
+                🌐 Website Development
+                <span class="term-tooltip">Creating and maintaining websites, including front-end and back-end development</span>
+              </span>
+              <span class="interactive-term">
+                App Development
+                <span class="term-tooltip">Creating mobile and desktop applications for various platforms</span>
+              </span>
+              <span class="interactive-term">
+                🗃️ Databases
+                <span class="term-tooltip">Systems for storing, managing, and retrieving data efficiently</span>
+              </span>
+              <span class="interactive-term">
+                🤖 Robotics
+                <span class="term-tooltip">Design, construction, and operation of robots</span>
+              </span>
+              <span class="interactive-term">
+                🧠 Machine Learning
+                <span class="term-tooltip">AI techniques that enable computers to learn from data without explicit programming</span>
+              </span>
+              <span class="interactive-term">
+                ⛓️ Web 3.0
+                <span class="term-tooltip">Decentralized web technologies, including blockchain and cryptocurrency</span>
+              </span>
+              <span class="interactive-term">
+                📐 Linear Algebra
+                <span class="term-tooltip">Branch of mathematics dealing with vectors, matrices, and linear transformations</span>
+              </span>
+              <span class="interactive-term">
+                ∫ Calculus
+                <span class="term-tooltip">Mathematical study of continuous change and accumulation</span>
+              </span>
+              <span class="interactive-term">
+                📊 Statistics
+                <span class="term-tooltip">Collection, analysis, interpretation, and presentation of data</span>
+              </span>
+              <span class="interactive-term">
+                🎲 Probability
+                <span class="term-tooltip">Mathematical study of random events and their likelihood</span>
+              </span>
+              <span class="interactive-term">
+                ⚛️ Physics
+                <span class="term-tooltip">Study of matter, energy, and their interactions</span>
+              </span>
+              <span class="interactive-term">
+                💬 Linguistics
+                <span class="term-tooltip">Scientific study of language and its structure</span>
+              </span>
+              <span class="interactive-term">
+                💰 Economics
+                <span class="term-tooltip">Study of production, distribution, and consumption of goods and services</span>
+              </span>
+              <span class="interactive-term">
+                🧘 Philosophy
+                <span class="term-tooltip">Study of fundamental questions about existence, knowledge, values, reason, and mind</span>
+              </span>
+              <span class="interactive-term">
+                🌍 World Cultures
+                <span class="term-tooltip">Study of different cultural traditions, beliefs, and practices around the world</span>
+              </span>
+              <span class="interactive-term">
+                Modern Control Systems
+                <span class="term-tooltip">Engineering discipline that deals with controlling dynamic systems</span>
+              </span>
+              <span class="interactive-term">
+                🤝 Ethics
+                <span class="term-tooltip">Moral principles that govern behavior and decision-making</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Languages I Speak -->
+          <div class="bento-item bento-languages">
+            <h3 data-i18n="facts.languages">Languages I Speak</h3>
+            <div class="languages-list">
+              <div class="language-item">
+                <span class="language-name">Chinese</span>
+                <span class="language-flag">🇨🇳</span>
+              </div>
+              <div class="language-item">
+                <span class="language-name">English</span>
+                <span class="language-flag">🇺🇸</span>
+              </div>
+              <div class="language-item">
+                <span class="language-name">Spanish</span>
+                <span class="language-flag">🇪🇸</span>
+              </div>
+              <div class="language-item">
+                <span class="language-name">Hindi</span>
+                <span class="language-flag">🇮🇳</span>
+              </div>
+              <div class="language-item">
+                <span class="language-name">German</span>
+                <span class="language-flag">🇩🇪</span>
+              </div>
+              <div class="language-item">
+                <span class="language-name">Arabic</span>
+                <span class="language-flag">🇦🇪</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- My Top 5 Singers -->
+          <div class="bento-item bento-music">
+            <h3 data-i18n="facts.music">Top 5 Singers</h3>
+            <div class="music-section">
+              <ol>
+                <li>Ed Sheeran</li>
+                <li>Bad Bunny</li>
+                <li>Drake</li>
+                <li>The Weeknd</li>
+                <li>Billie Eilish</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Tools I Use -->
+          <div class="bento-item bento-tools">
+            <h3 data-i18n="facts.tools">Tools & Systems</h3>
+            <div class="tools-list">
+              <span class="interactive-term">C++</span>
+              <span class="interactive-term">Java</span>
+              <span class="interactive-term">Python</span>
+              <span class="interactive-term">Rust</span>
+              <span class="interactive-term">Go</span>
+              <span class="interactive-term">Git</span>
+              <span class="interactive-term">Docker</span>
+              <span class="interactive-term">Kubernetes</span>
+              <span class="interactive-term">Arch Linux</span>
+              <span class="interactive-term">Blender</span>
+              <span class="interactive-term">Unreal Engine</span>
+              <span class="interactive-term">OpenGL</span>
+              <span class="interactive-term">CUDA</span>
+              <span class="interactive-term">Vim</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects-section section" id="projects">
+      <div class="container">
+        <h2 data-i18n="projects.title">Project Archives</h2>
+        <p class="section-subtitle" data-i18n="projects.subtitle">A collection of digital artifacts and experiments</p>
+        
+        <div class="project-archives">
+          <div class="archive-slider-container">
+            <div class="archive-slider" id="archiveSlider">
+              <!-- Urconomy -->
+              <div class="archive-page">
+                <div class="archive-visual">
+                  <img src="https://picsum.photos/seed/economy/1200/800" alt="Urconomy" referrerPolicy="no-referrer">
+                </div>
+                <div class="archive-content">
+                  <div class="archive-header">
+                    <span class="archive-icon">01 / PROJECT</span>
+                    <h3 class="archive-title">Urconomy</h3>
+                    <p class="archive-subtitle">The first economy system for URMinecraft</p>
+                  </div>
+                  <div class="archive-body">
+                    <div class="archive-section">
+                      <h4 data-i18n="projects.urconomy.about">About</h4>
+                      <p data-i18n="projects.urconomy.desc">A complex economic simulation built for a large-scale gaming community.</p>
+                    </div>
+                  </div>
+                  <a href="https://github.com/Ceaserzhao/Urconomy" class="project-link" target="_blank">
+                    View Archive <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- WoCon -->
+              <div class="archive-page">
+                <div class="archive-visual">
+                  <img src="https://picsum.photos/seed/world/1200/800" alt="WoCon" referrerPolicy="no-referrer">
+                </div>
+                <div class="archive-content">
+                  <div class="archive-header">
+                    <span class="archive-icon">02 / PROJECT</span>
+                    <h3 class="archive-title">WoCon</h3>
+                    <p class="archive-subtitle">World Converter & Utility</p>
+                  </div>
+                  <div class="archive-body">
+                    <div class="archive-section">
+                      <h4 data-i18n="projects.wocon.about">About</h4>
+                      <p data-i18n="projects.wocon.desc">A tool designed to bridge different virtual environments through data conversion.</p>
+                    </div>
+                  </div>
+                  <a href="https://github.com/Ceaserzhao/WoCon" class="project-link" target="_blank">
+                    View Archive <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Oermos -->
+              <div class="archive-page">
+                <div class="archive-visual">
+                  <img src="https://picsum.photos/seed/nature/1200/800" alt="Oermos" referrerPolicy="no-referrer">
+                </div>
+                <div class="archive-content">
+                  <div class="archive-header">
+                    <span class="archive-icon">03 / PROJECT</span>
+                    <h3 class="archive-title">Oermos</h3>
+                    <p class="archive-subtitle">Open Ecosystem Resource Management</p>
+                  </div>
+                  <div class="archive-body">
+                    <div class="archive-section">
+                      <h4 data-i18n="projects.oermos.about">About</h4>
+                      <p data-i18n="projects.oermos.desc">An open-source initiative for managing digital resources in complex ecosystems.</p>
+                    </div>
+                  </div>
+                  <a href="https://github.com/Ceaserzhao/Oermos" class="project-link" target="_blank">
+                    View Archive <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- APSUCK -->
+              <div class="archive-page">
+                <div class="archive-visual">
+                  <img src="https://picsum.photos/seed/education/1200/800" alt="APSUCK" referrerPolicy="no-referrer">
+                </div>
+                <div class="archive-content">
+                  <div class="archive-header">
+                    <span class="archive-icon">04 / PROJECT</span>
+                    <h3 class="archive-title">APSUCK</h3>
+                    <p class="archive-subtitle">Quality materials for AP students</p>
+                  </div>
+                  <div class="archive-body">
+                    <div class="archive-section">
+                      <h4 data-i18n="projects.apsuck.about">About</h4>
+                      <p data-i18n="projects.apsuck.desc">Helping students excel in AP Computer Science and Calculus through curated practice materials.</p>
+                    </div>
+                  </div>
+                  <a href="https://github.com/Ceaserzhao/APSUCK" class="project-link" target="_blank">
+                    View Archive <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Biosurf -->
+              <div class="archive-page">
+                <div class="archive-visual">
+                  <img src="https://picsum.photos/seed/browser/1200/800" alt="Biosurf" referrerPolicy="no-referrer">
+                </div>
+                <div class="archive-content">
+                  <div class="archive-header">
+                    <span class="archive-icon">05 / PROJECT</span>
+                    <h3 class="archive-title">Biosurf</h3>
+                    <p class="archive-subtitle">A browser tailored for machines</p>
+                  </div>
+                  <div class="archive-body">
+                    <div class="archive-section">
+                      <h4 data-i18n="projects.biosurf.about">About</h4>
+                      <p data-i18n="projects.biosurf.desc">A specialized browsing environment optimized for automated systems and machine interaction.</p>
+                    </div>
+                  </div>
+                  <a href="https://github.com/Ceaserzhao/Biosurf" class="project-link" target="_blank">
+                    View Archive <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Cebu -->
+              <div class="archive-page">
+                <div class="archive-visual">
+                  <img src="https://picsum.photos/seed/portfolio/1200/800" alt="Cebu" referrerPolicy="no-referrer">
+                </div>
+                <div class="archive-content">
+                  <div class="archive-header">
+                    <span class="archive-icon">06 / PROJECT</span>
+                    <h3 class="archive-title">Cebu</h3>
+                    <p class="archive-subtitle">Personal portfolio project</p>
+                  </div>
+                  <div class="archive-body">
+                    <div class="archive-section">
+                      <h4 data-i18n="projects.cebu.about">About</h4>
+                      <p data-i18n="projects.cebu.desc">A creative showcase of my journey as a dreambuilder and architect of digital worlds.</p>
+                    </div>
+                  </div>
+                  <a href="https://zbbsdszb.github.io/cebu" class="project-link" target="_blank">
+                    View Archive <i class="fa fa-globe"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="archive-nav">
+            <button class="nav-btn" id="prevBtn" aria-label="Previous Project">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="archive-indicators" id="archiveIndicators">
+              <span class="indicator active" data-index="0"></span>
+              <span class="indicator" data-index="1"></span>
+              <span class="indicator" data-index="2"></span>
+              <span class="indicator" data-index="3"></span>
+              <span class="indicator" data-index="4"></span>
+              <span class="indicator" data-index="5"></span>
+            </div>
+            <button class="nav-btn" id="nextBtn" aria-label="Next Project">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Motto 2 -->
+    <section class="motto2-section section">
+      <div class="container">
+        <div class="motto-card motto2-card">
+          <p data-i18n="motto2.content">McDonald's conquered yellow, Coca-Cola conquered red. May you and I conquer blue-green together. I call it Yka.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-section section" id="timeline">
+      <div class="container">
+        <h2 data-i18n="timeline.title">Timeline</h2>
+        <div class="timeline-container">
+          <div class="timeline-wrapper" id="timeline-wrapper">
+            <!-- 2026 -->
+            <div class="timeline-node">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <span class="timeline-date">2026.03</span>
+                <p class="timeline-content">
+                  Continuing the journey of "The Ethereal Architect" — pushing the boundaries of digital design and high-end aesthetics.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2025 -->
+            <div class="timeline-node">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <span class="timeline-date">2025.01</span>
+                <p class="timeline-content">
+                  Founded Oasis Company. Started the Urconomy project. Focused on AI integration and complex economic simulations.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="timeline-node">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <span class="timeline-date">2024.06</span>
+                <p class="timeline-content">
+                  Developed WoCon and Oermos. Explored decentralized web technologies and open-source resource management.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="timeline-node">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <span class="timeline-date">2023.12</span>
+                <p class="timeline-content">
+                  Created ApSuck and BioSurf. Deep dive into systems programming with Rust and Go.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <div id="gallery-container"></div>
+
+    <!-- Contact -->
+    <section class="contact-section section">
+      <div class="container">
+        <h2 data-i18n="contact.title">Leave Something For Me</h2>
+        <div class="contact-form">
+          <textarea id="message-input" placeholder="Your message..." data-i18n="contact.placeholder"></textarea>
+          <button id="send-button" data-i18n="contact.submit">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ending -->
+    <section class="ending-section section">
+      <div class="container">
+        <p class="ending-text" data-i18n="ending.content">Let's build the Oasisverse from here</p>
+        <p class="footer-text" data-i18n="ending.footer">© 2026 Oasis Company</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script type="module" src="script.js"></script>
+  <!-- v1.0.3 Specific Animations -->
+  <script src="animations.js"></script>
+</body>
+</html>

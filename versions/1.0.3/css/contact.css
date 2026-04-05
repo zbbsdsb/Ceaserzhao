@@ -1,0 +1,142 @@
+/* Contact & Ending Section Styles - The Ethereal Architect */
+
+/* Import Variables */
+@import './variables.css';
+
+.contact-section {
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--bg-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, var(--color-primary-glow) 0%, transparent 70%);
+  filter: blur(80px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.contact-section h2 {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  color: var(--color-text-main);
+  font-style: italic;
+}
+
+/* Contact Form */
+.contact-form {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* Message Input */
+#message-input {
+  width: 100%;
+  min-height: 150px;
+  padding: var(--spacing-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  resize: none;
+  transition: var(--transition-smooth);
+}
+
+#message-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#message-input::placeholder {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+/* Send Button */
+#send-button {
+  align-self: center;
+  padding: var(--spacing-md) var(--spacing-2xl);
+  background: transparent;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+#send-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary);
+  transition: var(--transition-smooth);
+  z-index: -1;
+}
+
+#send-button:hover {
+  color: var(--bg-main);
+  border-color: var(--color-primary);
+}
+
+#send-button:hover::before {
+  left: 0;
+}
+
+/* Ending Section */
+.ending-section {
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--bg-main);
+  text-align: center;
+  position: relative;
+}
+
+.ending-text {
+  font-family: var(--font-serif);
+  font-size: var(--text-5xl);
+  color: var(--color-text-main);
+  font-style: italic;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.9;
+}
+
+.footer-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  opacity: 0.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ending-text {
+    font-size: var(--text-3xl);
+  }
+}
