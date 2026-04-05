@@ -7,7 +7,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         history: resolve(__dirname, 'history.html'),
-        v103: resolve(__dirname, 'public/versions/1.0.3/index.html'),
+        v103: resolve(__dirname, 'versions/1.0.3/index.html'),
       },
     },
   },
