@@ -1,0 +1,167 @@
+/* Gallery Section - The Ethereal Architect */
+
+.gallery-section {
+  padding: var(--spacing-2xl) 0;
+  background-color: var(--bg-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-header {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.gallery-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--spacing-sm);
+}
+
+.gallery-title {
+  font-size: var(--text-4xl);
+  margin-bottom: 0;
+}
+
+/* Asymmetric Staggered Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 100px;
+  gap: var(--spacing-md);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--bg-card);
+  transition: var(--transition-smooth);
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.gallery-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Grid Variations */
+.item-lg { grid-column: span 6; grid-row: span 6; }
+.item-md { grid-column: span 4; grid-row: span 4; }
+.item-sm { grid-column: span 3; grid-row: span 3; }
+.item-tall { grid-column: span 3; grid-row: span 6; }
+.item-wide { grid-column: span 6; grid-row: span 3; }
+
+/* Image Wrapper & Effects */
+.gallery-image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  filter: grayscale(0.2) contrast(1.1);
+}
+
+.gallery-item:hover .gallery-image-wrapper img {
+  transform: scale(1.08);
+  filter: grayscale(0) contrast(1);
+}
+
+/* Rim Light Effect */
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: box-shadow 0.4s ease;
+}
+
+.gallery-item:hover::after {
+  box-shadow: inset 0 0 0 1px rgba(139, 92, 246, 0.3);
+}
+
+/* Info Overlay */
+.gallery-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-md);
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 2;
+}
+
+.gallery-item:hover .gallery-info {
+  transform: translateY(0);
+}
+
+.gallery-info-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-text-main);
+  margin-bottom: 4px;
+}
+
+.gallery-info-cat {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.gallery-item:nth-child(odd) { animation: float 6s ease-in-out infinite; }
+.gallery-item:nth-child(even) { animation: float 8s ease-in-out infinite; animation-delay: 1s; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 80px;
+  }
+  .item-lg { grid-column: span 6; }
+  .item-md { grid-column: span 3; }
+  .item-sm { grid-column: span 2; }
+  .item-tall { grid-column: span 3; }
+  .item-wide { grid-column: span 6; }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+    gap: var(--spacing-sm);
+  }
+  .item-lg, .item-md, .item-sm, .item-tall, .item-wide {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .gallery-title { font-size: var(--text-3xl); }
+}

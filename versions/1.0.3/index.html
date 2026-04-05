@@ -15,6 +15,7 @@
   <!-- 版本 1.0.3 样式 -->
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/cursor.css">
+  <link rel="stylesheet" href="css/gallery.css">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -531,8 +532,81 @@
       </div>
     </section>
 
-    <!-- Gallery -->
-    <div id="gallery-container"></div>
+    <!-- Gallery Section -->
+    <section class="gallery-section section" id="gallery">
+      <div class="container gallery-header">
+        <span class="gallery-label" data-i18n="gallery.label">Artifacts</span>
+        <h2 class="gallery-title" data-i18n="gallery.title">Digital Fragments</h2>
+      </div>
+      
+      <div class="gallery-grid">
+        <!-- Item 1: Large -->
+        <div class="gallery-item item-lg">
+          <div class="gallery-image-wrapper">
+            <img src="https://picsum.photos/seed/abstract/1200/1200" alt="Artifact 01" referrerPolicy="no-referrer">
+          </div>
+          <div class="gallery-info">
+            <h3 class="gallery-info-title">The Void</h3>
+            <span class="gallery-info-cat">01 / CONCEPT</span>
+          </div>
+        </div>
+
+        <!-- Item 2: Medium -->
+        <div class="gallery-item item-md">
+          <div class="gallery-image-wrapper">
+            <img src="https://picsum.photos/seed/tech/800/800" alt="Artifact 02" referrerPolicy="no-referrer">
+          </div>
+          <div class="gallery-info">
+            <h3 class="gallery-info-title">Neural Grid</h3>
+            <span class="gallery-info-cat">02 / INTERFACE</span>
+          </div>
+        </div>
+
+        <!-- Item 3: Tall -->
+        <div class="gallery-item item-tall">
+          <div class="gallery-image-wrapper">
+            <img src="https://picsum.photos/seed/architecture/600/1200" alt="Artifact 03" referrerPolicy="no-referrer">
+          </div>
+          <div class="gallery-info">
+            <h3 class="gallery-info-title">Ethereal Pillar</h3>
+            <span class="gallery-info-cat">03 / STRUCTURE</span>
+          </div>
+        </div>
+
+        <!-- Item 4: Small -->
+        <div class="gallery-item item-sm">
+          <div class="gallery-image-wrapper">
+            <img src="https://picsum.photos/seed/code/600/600" alt="Artifact 04" referrerPolicy="no-referrer">
+          </div>
+          <div class="gallery-info">
+            <h3 class="gallery-info-title">Logic Flow</h3>
+            <span class="gallery-info-cat">04 / DATA</span>
+          </div>
+        </div>
+
+        <!-- Item 5: Wide -->
+        <div class="gallery-item item-wide">
+          <div class="gallery-image-wrapper">
+            <img src="https://picsum.photos/seed/nebula/1200/600" alt="Artifact 05" referrerPolicy="no-referrer">
+          </div>
+          <div class="gallery-info">
+            <h3 class="gallery-info-title">Cosmic Dust</h3>
+            <span class="gallery-info-cat">05 / ATMOSPHERE</span>
+          </div>
+        </div>
+
+        <!-- Item 6: Medium -->
+        <div class="gallery-item item-md">
+          <div class="gallery-image-wrapper">
+            <img src="https://picsum.photos/seed/glitch/800/800" alt="Artifact 06" referrerPolicy="no-referrer">
+          </div>
+          <div class="gallery-info">
+            <h3 class="gallery-info-title">Digital Echo</h3>
+            <span class="gallery-info-cat">06 / EXPERIMENT</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Contact -->
     <section class="contact-section section">

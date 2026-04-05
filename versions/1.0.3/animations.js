@@ -111,7 +111,7 @@ function initProjectArchiveSlider() {
  * Initialize scroll-triggered animations
  */
 function initScrollAnimations() {
-  const animatedElements = document.querySelectorAll('.timeline-node, .bento-item, .org-card');
+  const animatedElements = document.querySelectorAll('.timeline-node, .bento-item, .org-card, .gallery-item');
   
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
