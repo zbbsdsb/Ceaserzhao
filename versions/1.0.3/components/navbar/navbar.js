@@ -1,5 +1,5 @@
 /**
- * Navbar Component for Version 1.0.2
+ * Navbar Component for Version 1.0.3
  */
 
 import { i18n, languages, currentLanguage } from '../../core/i18n/i18n.js';
@@ -116,7 +116,7 @@ class Navbar {
         this.closeDropdown(this.historyDropdown, this.historyMenu);
 
         if (isCurrent) {
-          window.location.href = '/versions/1.0.2/';
+          window.location.href = '/versions/1.0.3/';
         } else {
           this.switchToVersion(version);
         }
@@ -245,7 +245,7 @@ class Navbar {
     const links = this.navbar.querySelectorAll('.nav-link');
 
     links.forEach(link => {
-      if (link.getAttribute('href') === currentPath || (currentPath === '/versions/1.0.2/' && link.getAttribute('href') === '/versions/1.0.2/')) {
+      if (link.getAttribute('href') === currentPath || (currentPath === '/versions/1.0.3/' && link.getAttribute('href') === '/versions/1.0.3/')) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');

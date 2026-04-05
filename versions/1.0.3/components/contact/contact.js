@@ -1,5 +1,5 @@
 /**
- * Contact Component for Version 1.0.2
+ * Contact Component for Version 1.0.3
  */
 
 import { i18n } from '../../core/i18n/i18n.js';

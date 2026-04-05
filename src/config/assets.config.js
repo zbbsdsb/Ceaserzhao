@@ -8,7 +8,7 @@ export const assetsConfig = {
   images: {
     // 头像
     avatar: {
-      default: '/assets/images/avatar/avatar.jpg',
+      default: '/assets/images/avatar/v1.0.3profile.jpg',
       fallback: '/assets/images/avatar/default.JPG',
       meta: '/assets/images/avatar/meta.png'
     },

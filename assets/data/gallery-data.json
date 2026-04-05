@@ -2,27 +2,69 @@
   "images": [
     {
       "id": 1,
-      "src": "/assets/images/gallery/At McDonald's with my brothers.JPG",
-      "title": "At McDonald's with my brothers",
-      "description": "A fun day with my brothers at McDonald's"
+      "src": "/assets/images/gallery/The Overpass in Middle School.JPG",
+      "title": "The Overpass",
+      "category": "MEMORY"
     },
     {
       "id": 2,
-      "src": "/assets/images/gallery/my desktop in school.JPG",
-      "title": "My desktop in school",
-      "description": "My workspace setup in school"
+      "src": "/assets/images/gallery/MYSHGC club.JPG",
+      "title": "MYSHGC Club",
+      "category": "COMMUNITY"
     },
     {
       "id": 3,
-      "src": "/assets/images/gallery/qolar bear.JPG",
-      "title": "qolar bear",
-      "description": "A photo with qolar bear"
+      "src": "/assets/images/gallery/my desktop in school.JPG",
+      "title": "The Workspace",
+      "category": "CREATION"
     },
     {
       "id": 4,
-      "src": "/assets/images/gallery/The Overpass in Middle School.JPG",
-      "title": "The Overpass in Middle School",
-      "description": "Memories from middle school days"
+      "src": "/assets/images/gallery/qolar bear.JPG",
+      "title": "Qolar Bear",
+      "category": "SPIRIT"
+    },
+    {
+      "id": 5,
+      "src": "/assets/images/gallery/At McDonald's with my brothers.JPG",
+      "title": "Brotherhood",
+      "category": "BOND"
+    },
+    {
+      "id": 6,
+      "src": "/assets/images/avatar/v1.0.3profile.jpg",
+      "title": "The Architect",
+      "category": "IDENTITY"
+    },
+    {
+      "id": 7,
+      "src": "/assets/images/gallery/Ceaser with Wugay.jpg",
+      "title": "Ceaser with Wugay",
+      "category": "MEMORY"
+    },
+    {
+      "id": 8,
+      "src": "/assets/images/gallery/desktop.jpg",
+      "title": "Desktop Setup",
+      "category": "CREATION"
+    },
+    {
+      "id": 9,
+      "src": "/assets/images/gallery/Liuyi Lou.jpg",
+      "title": "Liuyi Lou",
+      "category": "MEMORY"
+    },
+    {
+      "id": 10,
+      "src": "/assets/images/gallery/white board.jpg",
+      "title": "White Board",
+      "category": "CREATION"
+    },
+    {
+      "id": 11,
+      "src": "/assets/images/gallery/workdesk.jpg",
+      "title": "Workdesk",
+      "category": "CREATION"
     }
   ]
 }

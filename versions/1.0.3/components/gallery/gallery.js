@@ -1,5 +1,5 @@
 /**
- * Gallery Component for Version 1.0.2
+ * Gallery Component for Version 1.0.3
  */
 
 class Gallery {

@@ -27,6 +27,11 @@ class I18nManager {
     // 加载默认语言
     await this.loadLanguage(this.currentLanguage);
 
+    // 加载英语作为备用 (如果当前不是英语)
+    if (this.currentLanguage !== 'en') {
+      await this.loadLanguage('en');
+    }
+
     // 设置 HTML lang 和 dir 属性
     this._updateHtmlAttributes();
   }
@@ -98,23 +103,46 @@ class I18nManager {
   }
 
   /**
+   * 获取翻译值 (支持嵌套)
+   * @param {string} language 
+   * @param {string} key 
+   * @returns {any}
+   */
+  _getValue(language, key) {
+    if (!this.translations[language]) return undefined;
+    
+    const keys = key.split('.');
+    let value = this.translations[language];
+
+    for (const k of keys) {
+      if (value && typeof value === 'object' && k in value) {
+        value = value[k];
+      } else {
+        return undefined;
+      }
+    }
+    return value;
+  }
+
+  /**
    * 翻译文本
    * @param {string} key - 翻译键 (支持嵌套，如 'nav.home')
    * @param {object} params - 参数对象
    * @returns {string}
    */
   t(key, params = {}) {
-    const keys = key.split('.');
-    let value = this.translations[this.currentLanguage];
+    // 首先尝试当前语言
+    let value = this._getValue(this.currentLanguage, key);
 
-    for (const k of keys) {
-      if (value && typeof value === 'object' && k in value) {
-        value = value[k];
-      } else {
-        // 如果找不到翻译，返回 key
-        console.warn(`Translation key "${key}" not found for language "${this.currentLanguage}"`);
-        return key;
-      }
+    // 如果找不到且当前不是英语，尝试英语备用
+    if (value === undefined && this.currentLanguage !== 'en') {
+      value = this._getValue('en', key);
+    }
+
+    if (value === undefined) {
+      // 如果还是找不到，返回 key 并警告
+      console.warn(`Translation key "${key}" not found for language "${this.currentLanguage}"`);
+      return key;
     }
 
     // 如果不是字符串，返回 key

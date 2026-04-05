@@ -25,7 +25,12 @@ class Navbar {
     this.currentLanguageFlag = document.getElementById('current-language-flag');
     this.currentLanguageName = document.getElementById('current-language-name');
     this.themeToggle = document.getElementById('theme-toggle');
-    this.versionSwitcherContainer = this.navbar.querySelector('.navbar-controls .nav-control:first-child');
+    
+    if (this.navbar) {
+      this.versionSwitcherContainer = this.navbar.querySelector('.navbar-controls .nav-control:first-child');
+    } else {
+      this.versionSwitcherContainer = null;
+    }
 
     // 调试：检查 language-switcher 的子元素
     if (this.languageSwitcher) {

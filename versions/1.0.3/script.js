@@ -1,5 +1,5 @@
 /**
- * Version 1.0.2 Main Script
+ * Version 1.0.3 Main Script
  * Component-based implementation
  */
 
@@ -35,7 +35,7 @@ class HomePage {
     this.updateTranslations();
 
     // Listen for language changes
-    // Version 1.0.2 i18n doesn't support onChange, so we'll skip this
+    // Version 1.0.3 i18n doesn't support onChange, so we'll skip this
   }
 
   updateTranslations() {

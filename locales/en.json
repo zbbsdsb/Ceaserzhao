@@ -12,6 +12,7 @@
   },
   "hero": {
     "name": "Ceaserzhao",
+    "label": "Insane Dreambuilder",
     "intro1": "Here, inspiration no longer wanders",
     "intro2": "Strictly speaking, I belong to Gen A, but I prefer to call myself Gen Z, or Gen TS (a concept I created myself).",
     "intro3": "I learn many things simultaneously.",
@@ -50,29 +51,40 @@
   },
   "projects": {
     "title": "My Projects (Doing)",
+    "subtitle": "A collection of digital artifacts and experiments",
     "urconomy": {
       "name": "Urconomy",
+      "about": "About",
+      "desc": "A complex economic simulation built for a large-scale gaming community.",
       "description": "A book I'm writing about economics, sociology, AI, and politics. Started writing in January 2025, expected to complete in mid-2026. The book has 9 chapters. If it helps you, that would be my greatest honor.",
       "github": "https://github.com/zbbsdsb/Urconomy"
     },
     "wocon": {
       "name": "Wocon",
+      "about": "About",
+      "desc": "A tool designed to bridge different virtual environments through data conversion.",
       "description": "A travel app that helps you find your travel companions. Whether it's the bustling streets of Manhattan or the end of the world, Punta Arenas, you might find that destined person. Web version is now live. Windows, Android, and iOS versions coming soon.",
       "website": "https://wocon.pages.dev",
       "slogan": "Experience what you've never imagined, start here."
     },
     "oermos": {
       "name": "Oermos",
+      "about": "About",
+      "desc": "An open-source initiative for managing digital resources in complex ecosystems.",
       "description": "An email app custom-built for Oasis Company",
       "github": "TBD"
     },
     "apsuck": {
       "name": "APSUCK",
+      "about": "About",
+      "desc": "Helping students excel in AP Computer Science and Calculus through curated practice materials.",
       "description": "Helps AP students access quality materials and online practice, mainly for AP CSA and AP Calculus BC. FIVE FIVE FIVE!!!!!!!!!!!!!!!",
       "github": "TBD"
     },
     "biosurf": {
       "name": "Biosurf",
+      "about": "About",
+      "desc": "A specialized browsing environment optimized for automated systems and machine interaction.",
       "description": "A browser custom-built for machines",
       "github": "TBD"
     },
@@ -88,6 +100,8 @@
     },
     "cebu": {
       "name": "CEBU",
+      "about": "About",
+      "desc": "A creative showcase of my journey as a dreambuilder and architect of digital worlds.",
       "description": "Cloud-based utility and management system",
       "github": "TBD"
     },
@@ -158,8 +172,17 @@
     ]
   },
   "gallery": {
-    "title": "Photograph",
-    "description": "Photo gallery displayed as a node map. Hover over each node to see image details."
+    "label": "Artifacts",
+    "title": "Digital Fragments",
+    "description": "A collection of moments captured across time and space.",
+    "items": {
+      "item1": { "title": "Liuyi Building", "cat": "01 / ACADEMIC" },
+      "item2": { "title": "With Wugay", "cat": "02 / BROTHERHOOD" },
+      "item3": { "title": "School Desktop", "cat": "03 / WORKSPACE" },
+      "item4": { "title": "The Blueprint", "cat": "04 / ARCHITECTURE" },
+      "item5": { "title": "Home Studio", "cat": "05 / CREATION" },
+      "item6": { "title": "v1.0.3 Profile", "cat": "06 / IDENTITY" }
+    }
   },
   "contact": {
     "title": "Leave Something For Me",

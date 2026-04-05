@@ -12,6 +12,7 @@
   },
   "hero": {
     "name": "Ceaserzhao",
+    "label": "疯狂的梦想构建者",
     "intro1": "在这里，灵感不再漂泊",
     "intro2": "严格上来说，我算是 A 世代，但是我更喜欢把自己称为 Z 世代，或是 TS 世代（这是一个我自创的概念）。",
     "intro3": "我会同时学很多东西。",
@@ -50,30 +51,41 @@
   },
   "projects": {
     "title": "我的项目（进行中）",
+    "subtitle": "数字艺术品与实验的集合",
     "urconomy": {
       "name": "Urconomy",
+      "about": "关于",
+      "desc": "为大规模游戏社区构建的复杂经济模拟系统。",
       "description": "一本我写的书，关于经济学、社会学、AI 和政治。我从 2025 年一月开始写这本书，预计会在 2026 年的中旬完成。全书包括九个章节，如果他能帮到你，那将是我最大的荣幸。",
       "github": "https://github.com/zbbsdsb/Urconomy"
     },
     "wocon": {
       "name": "Wocon",
+      "about": "关于",
+      "desc": "通过数据转换连接不同虚拟环境的工具。",
       "description": "一款旅行软件，帮你找到你的旅行伙伴。无论是曼哈顿繁华的街区，还是世界的尽头 Punta Arenas，或许你都可以找到那个缘分之人。网页版现已上线，日后也会上线 Windows、安卓和 iOS 版本的 Wocon。",
       "website": "https://wocon.pages.dev",
       "slogan": "经历你未曾所想，从这里开始。"
     },
     "oermos": {
       "name": "Oermos",
+      "about": "关于",
+      "desc": "用于管理复杂生态系统中数字资源的开源计划。",
       "description": "一个为 Oasis Company 量身定做的邮箱应用",
       "github": "待定"
     },
     "apsuck": {
       "name": "APSUCK",
+      "about": "关于",
+      "desc": "通过精心策划的练习材料，帮助学生在 AP 计算机科学和微积分中取得优异成绩。",
       "description": "帮助 AP 考生获得优质的资料和线上练习，主要针对 AP CSA 和 AP 微积分 BC。FIVE FIVE FIVE!!!!!!!!!!!!!!!",
       "github": "待定"
     },
     "biosurf": {
       "name": "Biosurf",
-      "description": "一个为机器量身定做的浏览器",
+      "about": "关于",
+      "desc": "为自动化系统和机器交互优化的专用浏览环境。",
+      "description": "一个为 机器量身定做的浏览器",
       "github": "待定"
     },
     "amar": {
@@ -88,6 +100,8 @@
     },
     "cebu": {
       "name": "CEBU",
+      "about": "关于",
+      "desc": "作为梦想构建者和数字世界建筑师的创意展示。",
       "description": "基于云的实用工具和管理系统",
       "github": "待定"
     },
@@ -158,8 +172,17 @@
     ]
   },
   "gallery": {
-    "title": "相册",
-    "description": "相册用节点地图表示，每个节点都为一个地图，当鼠标 hover 时，显示图片详情。"
+    "label": "遗迹",
+    "title": "数字碎片",
+    "description": "在时间和空间中捕捉到的瞬间集合。",
+    "items": {
+      "item1": { "title": "六一楼", "cat": "01 / 学术" },
+      "item2": { "title": "与 Wugay", "cat": "02 / 兄弟" },
+      "item3": { "title": "学校桌面", "cat": "03 / 工作空间" },
+      "item4": { "title": "蓝图", "cat": "04 / 架构" },
+      "item5": { "title": "家庭工作室", "cat": "05 / 创作" },
+      "item6": { "title": "v1.0.3 形象", "cat": "06 / 身份" }
+    }
   },
   "contact": {
     "title": "留点什么给我",

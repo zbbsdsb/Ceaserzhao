@@ -1,5 +1,5 @@
 /**
- * Theme Manager for Version 1.0.2
+ * Theme Manager for Version 1.0.3
  */
 
 const themes = {
